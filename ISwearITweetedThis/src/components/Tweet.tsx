@@ -1,4 +1,4 @@
-export function Tweet() {
+export function Tweet({ tweet }) {
   return (
     <>
       <div className="bg-white border-3 border-gray-200 font-sans w-full px-4 py-2 max-w-150 m-auto my-10 flex ">
@@ -12,14 +12,12 @@ export function Tweet() {
         </div>
         <div className="mb-0">
           <div className="flex-1 flex mb-1">
-            <p className="font-bold text-lg mr-1">Rylan</p>
-            <p className="text-gray-500 text-lg">@pixcel25</p>
+            <p className="font-bold text-lg mr-1">{tweet.name}</p>
+            <p className="text-gray-500 text-lg">@{tweet.userName}</p>
             <p className="text-gray-500 text-lg">&nbsp; · &nbsp; 8h</p>
           </div>
-          <section className="pb-0.5 text-xl">
-            Just pushed a feature at 2am, tests are passing, coffee is cold, and
-            I have absolutely no idea what I changed. Shipping to prod anyway.
-            We move. 🚀 #buildinpublic #devlife
+          <section className="pb-0.5 text-xl  w-full max-w-290">
+            {tweet.text}
           </section>
 
           <div className="text-gray-500 grid mt-0 grid-cols-5">
