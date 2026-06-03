@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import {
   MessageCircleIcon,
   ReplyIcon,
@@ -34,7 +35,7 @@ function formatDate(date: string) {
   return d.toLocaleDateString([], { month: "short", day: "numeric", year: "numeric" });
 }
 
-export function Tweet({ tweet }) {
+export const Tweet = forwardRef(({ tweet }, ref) => {
   return (
     <>
       <div className="bg-white border-2 border-gray-200 font-sans w-full px-4 py-2 max-w-xl m-auto my-10 flex flex-col">
@@ -63,7 +64,7 @@ export function Tweet({ tweet }) {
         </div>
 
         {/* Tweet Content */}
-        <div id="tweet" className="mb-3">
+        <div ref={ref} id="tweet" className="mb-3">
           <section className="pb-0.5 text-xl break-words w-full mb-2 text-left text-black">
             {formatText(tweet.text)}
           </section>
@@ -127,4 +128,4 @@ export function Tweet({ tweet }) {
       </div>
     </>
   );
-}
+});

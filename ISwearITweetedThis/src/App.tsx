@@ -52,9 +52,7 @@ function App() {
 
   return (
     <>
-      <div ref={tweetRef}>
-        <Tweet tweet={tweet} />
-      </div>
+      <Tweet ref={tweetRef} tweet={tweet} />
       <InputForm tweet={tweet} setTweet={setTweet} onDownload={handleDownload} />
     </>
   );
