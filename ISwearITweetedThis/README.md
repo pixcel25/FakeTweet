@@ -1,73 +1,48 @@
-# React + TypeScript + Vite
+# ISwearITweetedThis
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fake tweet generator that lets you customize and download tweet screenshots.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Real-time tweet preview editing (name, username, text, time, metrics)
+- Verified badge toggle
+- Download tweet as PNG image
+- Responsive form layout
 
-## React Compiler
+## Manual vs AI-Assisted
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Built Manually
+- Initial project setup with Vite + React + TypeScript + Tailwind
+- Tweet component structure and styling
+- Input form base implementation
+- Asset imports (images, icons)
 
-## Expanding the ESLint configuration
+### AI-Assisted (via opencode CLI)
+- Wired footer metrics to use dynamic tweet props instead of hardcoded values
+- Added number formatting for view/engagement counts
+- Added input fields for all tweet metrics (comments, retweets, likes, views, bookmarks)
+- Added persistent labels above inputs
+- Fixed footer action icons alignment
+- Restored missing analytics section in footer
+- Converted form layout from fixed-width to flexbox
+- Added bookmarks field across type, state, UI, and display
+- Integrated `react-to-print` for print functionality
+- Moved print button into InputForm component
+- Replaced print with download-to-PNG via `html-to-image`
+- Added verified badge toggle checkbox
+- Made form responsive with `flex-col` on mobile breakpoints
+- Added hashtag (#) and mention (@) detection and blue styling in tweet text
+- Added profile image URL input field to customize the tweet author's profile picture
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Build
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run build
 ```
