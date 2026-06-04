@@ -24,7 +24,7 @@ function App() {
      views: 112,
      bookmarks: 42,
      verified: true,
-     profileImage: "../src/assets/profile.jpg",
+     profileImage: defaultProfileImage,
      darkMode: false,
    });
 

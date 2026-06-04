@@ -75,7 +75,7 @@ export const Tweet = forwardRef<HTMLDivElement, { tweet: TweetType }>(({ tweet }
                     {tweet.verified && (
                       <img
                         alt="verified"
-                        src="../src/assets/verified.png"
+                        src={verifiedBadge}
                         className="w-4 h-4 ml-1 self-center"
                       />
                     )}
