@@ -6,6 +6,7 @@ import {
   BookmarkIcon,
   UploadIcon,
 } from "@animateicons/react/lucide";
+import type { Tweet as TweetType } from "../types";
 
 function formatCount(n: number) {
   if (n >= 1000000) return (n / 1000000).toFixed(1) + "M";
@@ -43,7 +44,7 @@ function formatDate(date: string) {
   });
 }
 
-export const Tweet = forwardRef(({ tweet }, ref) => {
+export const Tweet = forwardRef<HTMLDivElement, { tweet: TweetType }>(({ tweet }, ref) => {
   return (
     <>
       <div className="p-4">

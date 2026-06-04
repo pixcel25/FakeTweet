@@ -1,4 +1,13 @@
-export function InputForm({ tweet, setTweet, onDownload }) {
+import type { Dispatch, SetStateAction } from "react";
+import type { Tweet } from "../types";
+
+interface InputFormProps {
+  tweet: Tweet;
+  setTweet: Dispatch<SetStateAction<Tweet>>;
+  onDownload: () => void;
+}
+
+export function InputForm({ tweet, setTweet, onDownload }: InputFormProps) {
   return (
     <div className="m-auto flex flex-col gap-4 max-w-2xl px-4">
       <div className="flex flex-col sm:flex-row gap-4">
@@ -41,7 +50,10 @@ export function InputForm({ tweet, setTweet, onDownload }) {
                if (file) {
                  const reader = new FileReader();
                  reader.onload = (e) => {
-                   setTweet((prev) => ({ ...prev, profileImage: e.target?.result }));
+                   const result = e.target?.result;
+                   if (typeof result === "string") {
+                     setTweet((prev) => ({ ...prev, profileImage: result }));
+                   }
                  };
                  reader.readAsDataURL(file);
                }

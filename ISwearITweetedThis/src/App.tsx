@@ -3,29 +3,15 @@ import { InputForm } from "./components/InputForm";
 import { Tweet } from "./components/Tweet";
 import { useState, useRef } from "react";
 import { toPng } from "html-to-image";
+import type { Tweet as TweetType } from "./types";
 function App() {
-   type Tweet = {
-     name: string;
-     userName: string;
-     time: string;
-     date: string;
-     text: string;
-     comments: number;
-     retweets: number;
-     likes: number;
-     views: number;
-     bookmarks: number;
-     verified: boolean;
-     profileImage: string;
-     darkMode: boolean;
-   };
 
    const now = new Date();
    const pad = (n: number) => String(n).padStart(2, "0");
    const initialTime = `${pad(now.getHours())}:${pad(now.getMinutes())}`;
    const initialDate = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
 
-   const [tweet, setTweet] = useState<Tweet>({
+   const [tweet, setTweet] = useState<TweetType>({
      name: "rylan",
      userName: "Pixcel25",
      time: initialTime,
