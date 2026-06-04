@@ -4,6 +4,7 @@ import { Tweet } from "./components/Tweet";
 import { useState, useRef } from "react";
 import { toPng } from "html-to-image";
 import type { Tweet as TweetType } from "./types";
+import defaultProfileImage from "./assets/profile.jpg";
 function App() {
 
    const now = new Date();

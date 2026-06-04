@@ -7,6 +7,7 @@ import {
   UploadIcon,
 } from "@animateicons/react/lucide";
 import type { Tweet as TweetType } from "../types";
+import verifiedBadge from "../assets/verified.png";
 
 function formatCount(n: number) {
   if (n >= 1000000) return (n / 1000000).toFixed(1) + "M";
