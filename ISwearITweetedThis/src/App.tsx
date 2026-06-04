@@ -17,6 +17,7 @@ function App() {
      bookmarks: number;
      verified: boolean;
      profileImage: string;
+     darkMode: boolean;
    };
 
    const now = new Date();
@@ -37,6 +38,7 @@ function App() {
      bookmarks: 42,
      verified: true,
      profileImage: "../src/assets/profile.jpg",
+     darkMode: false,
    });
 
   const tweetRef = useRef<HTMLDivElement>(null);

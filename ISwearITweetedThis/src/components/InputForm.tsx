@@ -101,6 +101,19 @@ export function InputForm({ tweet, setTweet, onDownload }) {
         Verified
       </label>
 
+      {/* Night / Day Toggle */}
+      <label className="flex items-center gap-2 text-gray-700 text-sm font-semibold">
+        <input
+          type="checkbox"
+          checked={tweet.darkMode}
+          onChange={(event) =>
+            setTweet((prev) => ({ ...prev, darkMode: event.target.checked }))
+          }
+          className="w-4 h-4"
+        />
+        Night Mode
+      </label>
+
       <div className="flex flex-col sm:flex-row gap-4 flex-wrap">
         <div className="flex flex-col flex-1 min-w-[100px]">
           <label className="text-gray-700 text-sm font-semibold mb-1">Comments</label>

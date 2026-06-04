@@ -48,7 +48,14 @@ export const Tweet = forwardRef(({ tweet }, ref) => {
     <>
       <div className="p-4">
         <div ref={ref} className="p-2">
-          <div className="bg-white border-2 border-gray-200 font-sans w-full px-4 py-2 max-w-xl m-auto my-10 flex flex-col">
+          <div
+            className="font-sans w-full px-4 py-2 max-w-xl m-auto my-10 flex flex-col"
+            style={{
+              background: tweet.darkMode ? "#15202b" : "#ffffff",
+              border: `2px solid ${tweet.darkMode ? "#2d3741" : "#e5e7eb"}`,
+              transition: "background 0.3s, border-color 0.3s",
+            }}
+          >
             {/* Header Section */}
             <div id="header" className="flex mb-3 items-center">
               <img
@@ -58,7 +65,10 @@ export const Tweet = forwardRef(({ tweet }, ref) => {
               />
               <div className="flex flex-col">
                 <div className="flex items-center gap-1">
-                  <span className="font-bold text-base text-black flex items-center">
+                  <span
+                    className="font-bold text-base flex items-center"
+                    style={{ color: tweet.darkMode ? "#ffffff" : "#000000", transition: "color 0.3s" }}
+                  >
                     {tweet.name}
                     {tweet.verified && (
                       <img
@@ -69,38 +79,60 @@ export const Tweet = forwardRef(({ tweet }, ref) => {
                     )}
                   </span>
                 </div>
-                <p className="text-gray-500 text-sm">@{tweet.userName}</p>
+                <p
+                  className="text-sm"
+                  style={{ color: tweet.darkMode ? "#8899a6" : "#6b7280", transition: "color 0.3s" }}
+                >
+                  @{tweet.userName}
+                </p>
               </div>
             </div>
 
             {/* Tweet Content */}
             <div id="tweet" className="mb-3">
-              <section className="pb-0.5 text-xl break-words w-full mb-2 text-left text-black">
+              <section
+                className="pb-0.5 text-xl break-words w-full mb-2 text-left"
+                style={{ color: tweet.darkMode ? "#ffffff" : "#000000", transition: "color 0.3s" }}
+              >
                 {formatText(tweet.text)}
               </section>
             </div>
 
             {/* Footer Metrics */}
             <div id="footer">
-              <div className="flex flex-wrap items-center gap-1 text-gray-500 text-sm font-medium">
+              <div
+                className="flex flex-wrap items-center gap-1 text-sm font-medium"
+                style={{ color: tweet.darkMode ? "#8899a6" : "#6b7280", transition: "color 0.3s" }}
+              >
                 <span>{formatTime(tweet.time)}</span>
                 <span>·</span>
                 <span>{formatDate(tweet.date)}</span>
                 <span>·</span>
-                <span className="text-black font-semibold">
+                <span
+                  className="font-semibold"
+                  style={{ color: tweet.darkMode ? "#ffffff" : "#000000", transition: "color 0.3s" }}
+                >
                   {formatCount(tweet.views)}
                 </span>
                 <span>Views</span>
               </div>
 
-              <hr className="border-gray-200 my-2" />
+              <hr
+                className="my-2"
+                style={{ borderColor: tweet.darkMode ? "#2d3741" : "#e5e7eb", transition: "border-color 0.3s" }}
+              />
 
-              {/* Action Icons Grid */}
-              <div className="text-gray-500 flex justify-between pt-1">
+              <div
+                className="flex justify-between pt-1"
+                style={{ color: tweet.darkMode ? "#8899a6" : "#6b7280", transition: "color 0.3s" }}
+              >
                 {/* Reply */}
                 <div className="flex items-center gap-1">
                   <MessageCircleIcon size={20} />
-                  <span className="font-medium text-xs text-gray-600">
+                  <span
+                    className="font-medium text-xs"
+                    style={{ color: tweet.darkMode ? "#8899a6" : "#4b5563", transition: "color 0.3s" }}
+                  >
                     {formatCount(tweet.comments)}
                   </span>
                 </div>
@@ -108,7 +140,10 @@ export const Tweet = forwardRef(({ tweet }, ref) => {
                 {/* Retweet */}
                 <div className="flex items-center gap-1">
                   <ReplyIcon size={20} />
-                  <span className="font-medium text-xs text-gray-600">
+                  <span
+                    className="font-medium text-xs"
+                    style={{ color: tweet.darkMode ? "#8899a6" : "#4b5563", transition: "color 0.3s" }}
+                  >
                     {formatCount(tweet.retweets)}
                   </span>
                 </div>
@@ -116,7 +151,10 @@ export const Tweet = forwardRef(({ tweet }, ref) => {
                 {/* Like */}
                 <div className="flex items-center gap-1">
                   <HeartIcon size={20} />
-                  <span className="font-medium text-xs text-gray-600">
+                  <span
+                    className="font-medium text-xs"
+                    style={{ color: tweet.darkMode ? "#8899a6" : "#4b5563", transition: "color 0.3s" }}
+                  >
                     {formatCount(tweet.likes)}
                   </span>
                 </div>
@@ -124,7 +162,10 @@ export const Tweet = forwardRef(({ tweet }, ref) => {
                 {/* Bookmark */}
                 <div className="flex items-center gap-1">
                   <BookmarkIcon size={20} />
-                  <span className="font-medium text-xs text-gray-600">
+                  <span
+                    className="font-medium text-xs"
+                    style={{ color: tweet.darkMode ? "#8899a6" : "#4b5563", transition: "color 0.3s" }}
+                  >
                     {formatCount(tweet.bookmarks)}
                   </span>
                 </div>
